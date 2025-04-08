@@ -1,0 +1,284 @@
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* overflow: hidden; */
+}
+body, html {
+    height: 100%;
+    overflow-x: hidden; /* only hide side scroll */
+    overflow-y: auto;
+}
+
+.container{
+    position: relative;
+    height: 100vh;
+    width:100vw;
+    
+}
+
+.upper{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.upper .image{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.upper .image > img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    
+    display: block;
+}
+
+
+.Namoz_time {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.4); /* optional dark overlay */
+    color: white;
+    font-size: 1.5rem;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.current_location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* space between icon and text */
+}
+.current_location img {
+    width: 24px;
+    height: 24px;
+}
+
+.current_location h2 {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+
+.location{
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    /* background-color: red;
+    border: 10px solid green; */
+    float: right;
+    z-index: 5;
+}
+.location select {
+    font-size: 1.5rem;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: sans-serif;
+    border-top-left-radius:30px;
+    border-bottom-left-radius:30px;
+    background-color: white;
+    color: #002244;
+    border: #002244;
+    /* padding: 15px 5px 10px 5px; */
+    
+}
+
+.location select option{
+    color: #002244;
+    margin-right: 30px;
+    padding-right: 30px;
+}
+
+
+.lower {
+    position: absolute;
+    top: 70%; /* Adjust this number depending on how low you want it to appear */
+    /* left: 50%;
+    transform: translateX(-50%); */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(to top, #4287b5 35%, rgba(66, 135, 181, 0) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: -20px; /* optional, to pull it closer to image */
+    z-index: 5;
+}
+
+.current_time {
+    width: 355px;
+    height: 261px;
+    margin-right: 2rem;
+    background: white;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.current_time h1 {
+    font-size: 96px;
+    color: #002244;
+}
+
+.current_time p {
+    font-size: 64px;
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+.times {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    width: 161px;
+    height: 261px;
+    background: #d9edf7;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 100px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.time-box h3 {
+    font-size: 30px;
+    margin-bottom: 0.2rem;
+    color: #005577;
+}
+
+.time-box p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.time-box h2 {
+    margin-top: 0.5rem;
+    font-size: 40px;
+    color: #002244;
+}
+
+@media (max-width: 425px) {
+    .Namoz_time{
+        display: flex;
+        justify-content: space-between;
+        
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .Namoz_time h1 {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+
+    }
+    .current_location{
+        display: flex;
+        flex-direction: column;
+        margin-right: 1rem;
+    }
+    .current_location h2 {
+        font-size: 1rem;
+        
+    }
+    .upper .image > img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover; /* 🔥 Maintain aspect ratio and nicely fill the space */
+        display: block;
+    }
+
+    .lower {
+      top: 50%; /* Adjust the top position a bit for smaller screens */
+      padding: 1rem;
+    }
+  
+    .current_time {
+      width: 100%;
+      margin: 0 0 1rem 0; /* margin-bottom between boxes */
+    }
+    
+
+    .times {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+    }
+    .times .time-box {
+        flex: 0 1 45%;
+        width: 55px;
+        height: 150px;
+        margin: 0 0 0.5rem 0; /* margin-bottom between boxes */
+        padding: 10px;
+        
+      }
+
+    .time-box h3 {
+        font-size: 1.25rem;
+        
+    }
+
+    .time-box h2 {
+        font-size: 1.5rem;
+    }
+  }
+
+  @media(max-width: 1024px){
+    .lower {
+        top: 50%; /* Adjust the top position a bit for smaller screens */
+        padding: 1rem;
+    }
+
+    .current_time{
+        margin: 0 0 1rem 0;
+    }
+    .current_time h1 {
+        font-size: 4.5rem;
+    }
+    .current_time p {
+        font-size: 3rem;
+    }
+
+    .times{
+        display: flex;
+        justify-content:space-around ;
+    }
+    .time-box{
+        height: 200px;
+    }
+    .time-box h3 {
+        font-size: 1.5rem;
+    }
+
+    .time-box h2 {
+        font-size: 2rem;
+    }
+  }

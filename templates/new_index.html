@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../static/img/logo.png">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="../static/new_css_background.css">
+    <title>Namoz Vaqtlari</title>
+</head>
+<body>
+
+    <div class="container" >
+        <div class="upper" >
+            <div class="image">
+                <img src="{{url_for('static', filename='img/mosque.png')}}" alt="mosque background img" >
+            </div>
+            <div class="Namoz_time">
+                <h1>Namoz | Time</h1>
+                <div class="current_location">
+                    <img src="{{url_for('static', filename='img/location.svg')}}" alt="current location">
+                    <h2>{{selected_city}}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="location" >
+            <form method="GET" action="/">
+                <select name="city" onchange="this.form.submit()">
+                    {% for city in cities %}
+                        <option value="{{ city.value }}" {% if selected_city == city.value %}selected{% endif %}>
+                            {{ city.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+
+        </div>
+
+        <div class="lower">
+            <div class="current_time">
+                <h1>{{ time }}</h1>
+                <p>{{ today }} </p>
+            </div>
+    
+            <div class="times">
+                <div class="time-box">
+                    <h3>Bomdod</h3>
+                    
+                    <h2>{{ pray_times["tong_saharlik"] }}</h2>
+                </div>
+                <div class="time-box">
+                    <h3>Peshin</h3>
+                
+                    <h2>{{ pray_times["peshin"] }}</h2>
+                </div>
+                <div class="time-box">
+                    <h3>Asr</h3>
+                
+                    <h2>{{ pray_times["asr"] }}</h2>
+                </div>
+                <div class="time-box">
+                    <h3>Shom</h3>
+                
+                    <h2>{{ pray_times["shom_iftor"] }}</h2>
+                </div>
+                <div class="time-box">
+                    <h3>Hufton</h3>
+                
+                    <h2>{{ pray_times["hufton"] }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+    
+    
+    
+    
+    
+    <!-- 
+    <div class="container">
+        <div class="row">
+            
+        </div>
+        
+        <div class="row" >
+            <p>something</p>
+        </div>
+
+    </div>  -->
+    
+</body>
+</html>
